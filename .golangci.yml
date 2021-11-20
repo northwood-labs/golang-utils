@@ -244,7 +244,7 @@ linters-settings:
   goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
-    local-prefixes: github.mheducation.com/monitoring-as-code/monitorkit
+    local-prefixes: github.com/northwood-labs/golang-utils
 
   golint:
     # minimal confidence for issues, default is 0.8
@@ -402,7 +402,7 @@ issues:
     # Exclude some linters from running on tests files.
     - linters:
         - lll
-      source: "lint:ignore-length"
+      source: "lint:ignore_length"
 
     - linters:
         - gosec
