@@ -1,0 +1,10 @@
+!db/datadir/.gitignore
+.serverless
+*.bak.*
+*.out
+*.test
+bin/*
+db/datadir/*
+logs/*
+samconfig.*
+serverless.yml
