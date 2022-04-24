@@ -5,20 +5,36 @@ import (
 	"os"
 	"runtime"
 	"strings"
+
+	"github.com/pkg/errors"
 )
 
 // ExitErrorf enables standardized error message formatting.
-func ExitErrorf(args ...interface{}) { // lint:allow_dead
-	if len(args) == 1 {
-		fmt.Fprintf(os.Stderr, "Error: %+v\n\n", args...)
-	} else {
-		fmt.Fprintf(os.Stderr, "Error: %+v\nContext: %+v\n\n", args...)
+func ExitErrorf(err error, args ...string) { // lint:allow_dead
+	if len(args) == 0 {
+		args[0] = ""
 	}
 
-	function, file, line, _ := runtime.Caller(1)
-	fmt.Fprintf(os.Stderr, "%s:%d %s\r\n", chopPath(file), line, runtime.FuncForPC(function).Name())
-
+	err = Errorf(err, args[0])
+	fmt.Fprintf(os.Stderr, "%s\n", err)
 	os.Exit(1)
+}
+
+// Errorf enables standardized error message formatting.
+func Errorf(err error, args ...string) error { // lint:allow_dead
+	function, file, line, _ := runtime.Caller(1)
+	meta := fmt.Sprintf(
+		"[%s:%d %s]\n",
+		chopPath(file),
+		line,
+		runtime.FuncForPC(function).Name(),
+	)
+
+	if len(args) == 0 {
+		args[0] = ""
+	}
+
+	return fmt.Errorf("[ERROR]: %w %s", errors.Wrap(err, args[0]), meta)
 }
 
 func chopPath(original string) string { // lint:allow_dead
