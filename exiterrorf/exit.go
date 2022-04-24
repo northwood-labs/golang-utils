@@ -12,7 +12,7 @@ import (
 // ExitErrorf enables standardized error message formatting.
 func ExitErrorf(err error, args ...string) { // lint:allow_dead
 	if len(args) == 0 {
-		args[0] = ""
+		args = []string{""}
 	}
 
 	err = Errorf(err, args[0])
