@@ -4,9 +4,9 @@ import (
 	"os"
 	"strings"
 
-	spew "github.com/davecgh/go-spew/spew"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
+	"github.com/spewerspew/spew"
 )
 
 // GetSpew is analogous to PrettyPrint in Python or print_r() in PHP.
