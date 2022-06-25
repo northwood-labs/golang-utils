@@ -22,7 +22,7 @@ func ExitErrorf(err error, args ...string) { // lint:allow_dead
 
 // Errorf enables standardized error message formatting.
 func Errorf(err error, args ...string) error { // lint:allow_dead
-	function, file, line, _ := runtime.Caller(1)
+	function, file, line, _ := runtime.Caller(2)
 	meta := fmt.Sprintf(
 		"[%s:%d %s]\n",
 		chopPath(file),
