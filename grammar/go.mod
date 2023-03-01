@@ -1,3 +1,3 @@
 module github.com/northwood-labs/golang-utils/grammar
 
-go 1.17
+go 1.19

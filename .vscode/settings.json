@@ -55,4 +55,5 @@
   "search.showLineNumbers": true,
   "search.useGlobalIgnoreFiles": true,
   "shellcheck.enableQuickFix": false,
+  "sarif-viewer.connectToGithubCodeScanning": "on",
 }
