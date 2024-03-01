@@ -2,12 +2,14 @@ package archstring
 
 import "testing"
 
+const errorMessage = "Result was `%s` instead of `%s`."
+
 func TestGetFriendlyNameJS(t *testing.T) {
 	expected := "WebAssembly"
 	actual := GetFriendlyName("js", "wasm")
 
 	if actual != expected {
-		t.Errorf("Result was `%s` instead of `%s`.", actual, expected)
+		t.Errorf(errorMessage, actual, expected)
 	}
 }
 
@@ -16,7 +18,7 @@ func TestGetFriendlyNameASi(t *testing.T) {
 	actual := GetFriendlyName("darwin", "arm64")
 
 	if actual != expected {
-		t.Errorf("Result was `%s` instead of `%s`.", actual, expected)
+		t.Errorf(errorMessage, actual, expected)
 	}
 }
 
@@ -25,7 +27,7 @@ func TestGetFriendlyNameLinux64(t *testing.T) {
 	actual := GetFriendlyName("linux", "amd64")
 
 	if actual != expected {
-		t.Errorf("Result was `%s` instead of `%s`.", actual, expected)
+		t.Errorf(errorMessage, actual, expected)
 	}
 }
 
@@ -34,7 +36,7 @@ func TestGetFriendlyNameNoOS(t *testing.T) {
 	actual := GetFriendlyName("illumos", "amd64")
 
 	if actual != expected {
-		t.Errorf("Result was `%s` instead of `%s`.", actual, expected)
+		t.Errorf(errorMessage, actual, expected)
 	}
 }
 
@@ -43,6 +45,6 @@ func TestGetFriendlyNameNoOSArch(t *testing.T) {
 	actual := GetFriendlyName("zos", "s390x")
 
 	if actual != expected {
-		t.Errorf("Result was `%s` instead of `%s`.", actual, expected)
+		t.Errorf(errorMessage, actual, expected)
 	}
 }

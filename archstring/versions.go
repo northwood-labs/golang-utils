@@ -1,8 +1,8 @@
 package archstring
 
-import (
-	"fmt"
-)
+import "fmt"
+
+const wasmID = "wasm"
 
 // GetFriendlyName takes the values of GOOS and GOARCH, and returns a "friendly"
 // name for the pairing (U.S. English).
@@ -13,8 +13,12 @@ func GetFriendlyName(osStr, archStr string) string {
 	osFriendly = osStr
 	archFriendly = archStr
 
-	if osStr == "js" && archStr == "wasm" {
+	if osStr == "js" && archStr == wasmID {
 		return "WebAssembly"
+	}
+
+	if osStr == "wasip1" && archStr == wasmID {
+		return "WebAssembly with WASI Preview 1"
 	}
 
 	if osStr == "darwin" && archStr == "arm64" {
