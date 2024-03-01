@@ -34,7 +34,7 @@ func Errorf(err error, args ...string) error { // lint:allow_dead
 		args[0] = ""
 	}
 
-	return fmt.Errorf("[ERROR]: %w %s", errors.Wrap(err, args[0]), meta)
+	return fmt.Errorf("[ERROR]%w %s", errors.Wrap(err, args[0]), meta)
 }
 
 func chopPath(original string) string { // lint:allow_dead
