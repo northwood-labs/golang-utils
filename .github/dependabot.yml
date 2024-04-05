@@ -1,0 +1,46 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /archstring
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /debug
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /exiterrorf
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /grammar
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /log
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /slices
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /tools
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /types
+    schedule:
+      interval: daily
