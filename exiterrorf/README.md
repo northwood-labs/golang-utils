@@ -1,16 +1,15 @@
 # exiterrorf
 
-## ExitErrorf
+Removed. Use error-wrapping (Go 1.13) instead.
+
+Using <https://github.com/charmbracelet/log>, you should do:
 
 ```go
-import "github.com/northwood-labs/golang-utils/exiterrorf"
+logger := log.NewWithOptions(os.Stderr, log.Options{
+    ReportCaller: true,
+    ReportTimestamp: true,
+    TimeFormat: time.Kitchen,
+})
 
-func main() {
-    results, err := DoAThing()
-    if err != nil {
-        exiterrorf.ExitErrorf(err)
-    }
-}
+log.With("err", err).Fatal("unable to start oven")
 ```
-
-It will exit the CLI tool with the error message. It will also display the **function** and **line number** from where the exit was triggered.
